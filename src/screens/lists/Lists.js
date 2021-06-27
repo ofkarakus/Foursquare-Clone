@@ -1,14 +1,14 @@
 import React from 'react';
 import {SafeAreaView, View, Text} from 'react-native';
 
-const Main = () => {
+const Lists = () => {
   return (
     <SafeAreaView>
       <View>
-        <Text>Main Page</Text>
+        <Text>Lists Screen</Text>
       </View>
     </SafeAreaView>
   );
 };
 
-export default Main;
+export default Lists;
