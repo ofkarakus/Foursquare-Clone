@@ -41,7 +41,7 @@ static void InitializeFlipper(UIApplication *application) {
 #endif
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
-                                                   moduleName:@"CityYelpApp"
+                                                   moduleName:@"FoursquareClone"
                                             initialProperties:nil];
 
   if (@available(iOS 13.0, *)) {
