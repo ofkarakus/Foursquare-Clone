@@ -7,7 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "pod": "cd ios && pod install && cd ..",
+    "svgr": "svgr ./src/assets/icons -d ./src/components/icons --native --svg-props 'width=20, height=20' --svgo-config .svgorc.json"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",
@@ -18,12 +20,14 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-reanimated": "^2.2.0",
     "react-native-safe-area-context": "^3.2.0",
-    "react-native-screens": "^3.4.0"
+    "react-native-screens": "^3.4.0",
+    "react-native-svg": "^12.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/runtime": "^7.14.6",
     "@react-native-community/eslint-config": "^3.0.0",
+    "@svgr/cli": "^5.5.0",
     "babel-jest": "^27.0.5",
     "eslint": "^7.29.0",
     "jest": "^27.0.5",
