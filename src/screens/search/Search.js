@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Image, TextInput, TouchableHighlight, Text} from 'react-native';
+import {
+  View,
+  Image,
+  TextInput,
+  TouchableHighlight,
+  Text,
+  ImageBackground,
+} from 'react-native';
 import styles from './Search.styles';
 import {
   Breakfast,
@@ -8,23 +15,36 @@ import {
   CoffeeTea,
   NightLife,
   ThingsToDo,
+  Loupe,
 } from '../../components/icons';
 
-const iconSize = '50';
+const iconSize = '45';
 const iconColor = '#4f5659';
 const btnUnderlayColor = '#e0e0e0';
 
 const Search = () => {
   return (
     <View style={styles.container}>
-      <Image
+      <ImageBackground
         source={require('../../assets/images/dining-table.jpeg')}
-        style={styles.imgContainer}
-      />
-      <View>
-        <TextInput style={styles.searchBar} />
+        style={styles.imgContainer}>
+        <Image source={require('../../assets/images/city-guide-logo.png')} />
+      </ImageBackground>
+      <View style={styles.inputView}>
+        <Loupe
+          fill={'#979b9e'}
+          width="18"
+          height="18"
+          style={styles.searchIcon}
+        />
+        <TextInput
+          placeholder="What are you looking for?"
+          placeholderTextColor="#a8acab"
+          style={styles.input}
+        />
       </View>
       <View style={styles.btnContainer}>
+        <View style={styles.secretView} />
         <TouchableHighlight
           underlayColor={btnUnderlayColor}
           onPress={() => console.log('press')}

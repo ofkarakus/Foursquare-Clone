@@ -1,10 +1,15 @@
 import {StyleSheet, Dimensions} from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {flex: 1},
+  container: {
+    flex: 1,
+    backgroundColor: '#f0eff4',
+  },
   imgContainer: {
-    flex: 0.9,
+    flex: 1,
     resizeMode: 'cover',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   btnContainer: {
     flex: 1,
@@ -43,6 +48,27 @@ const styles = StyleSheet.create({
   },
   sixthBtn: {
     borderLeftWidth: 1,
+  },
+  inputView: {
+    width: Dimensions.get('window').width * 0.9,
+    height: 55,
+    backgroundColor: 'white',
+    alignSelf: 'center',
+    borderRadius: 3,
+    flexDirection: 'row',
+    alignItems: 'center',
+    position: 'absolute',
+    top: Dimensions.get('window').height / 2.23,
+    zIndex: 1,
+  },
+  searchIcon: {
+    marginLeft: 15,
+    marginRight: 20,
+  },
+  secretView: {
+    marginBottom: 25,
+    height: 1,
+    width: '100%',
   },
 });
 
