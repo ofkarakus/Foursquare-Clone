@@ -1,6 +1,18 @@
 import React from 'react';
-import {View, Image, TextInput, TouchableOpacity, Text} from 'react-native';
+import {View, Image, TextInput, TouchableHighlight, Text} from 'react-native';
 import styles from './Search.styles';
+import {
+  Breakfast,
+  Lunch,
+  Dinner,
+  CoffeeTea,
+  NightLife,
+  ThingsToDo,
+} from '../../components/icons';
+
+const iconSize = '50';
+const iconColor = '#4f5659';
+const btnUnderlayColor = '#e0e0e0';
 
 const Search = () => {
   return (
@@ -13,24 +25,60 @@ const Search = () => {
         <TextInput style={styles.searchBar} />
       </View>
       <View style={styles.btnContainer}>
-        <TouchableOpacity style={styles.firstBtn}>
-          <Text>Breakfast</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.firstBtn}>
-          <Text>Lunch</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.firstBtn}>
-          <Text>Dinner</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.firstBtn}>
-          <Text>Coffee & Tea</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.firstBtn}>
-          <Text>Nightlife</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.firstBtn}>
-          <Text>Things to do</Text>
-        </TouchableOpacity>
+        <TouchableHighlight
+          underlayColor={btnUnderlayColor}
+          onPress={() => console.log('press')}
+          style={[styles.btn, styles.firstBtn]}>
+          <View style={styles.btnView}>
+            <Breakfast width={iconSize} height={iconSize} fill={iconColor} />
+            <Text style={styles.text}>Breakfast</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight
+          underlayColor={btnUnderlayColor}
+          onPress={() => console.log('press')}
+          style={[styles.btn, styles.secondBtn]}>
+          <View style={styles.btnView}>
+            <Lunch width={iconSize} height={iconSize} fill={iconColor} />
+            <Text style={styles.text}>Lunch</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight
+          underlayColor={btnUnderlayColor}
+          onPress={() => console.log('press')}
+          style={[styles.btn, styles.thirdBtn]}>
+          <View style={styles.btnView}>
+            <Dinner width={iconSize} height={iconSize} fill={iconColor} />
+            <Text style={styles.text}>Dinner</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight
+          underlayColor={btnUnderlayColor}
+          onPress={() => console.log('press')}
+          style={[styles.btn, styles.fourthBtn]}>
+          <View style={styles.btnView}>
+            <CoffeeTea width={iconSize} height={iconSize} fill={iconColor} />
+            <Text style={styles.text}>Coffee & Tea</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight
+          underlayColor={btnUnderlayColor}
+          onPress={() => console.log('press')}
+          style={[styles.btn, styles.fifthBtn]}>
+          <View style={styles.btnView}>
+            <NightLife width={iconSize} height={iconSize} fill={iconColor} />
+            <Text style={styles.text}>Nightlife</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight
+          underlayColor={btnUnderlayColor}
+          onPress={() => console.log('press')}
+          style={[styles.btn, styles.sixthBtn]}>
+          <View style={styles.btnView}>
+            <ThingsToDo width={iconSize} height={iconSize} fill={iconColor} />
+            <Text style={styles.text}>Things to do</Text>
+          </View>
+        </TouchableHighlight>
       </View>
     </View>
   );
