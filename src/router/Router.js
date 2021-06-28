@@ -5,7 +5,7 @@ import SearchScreen from '../screens/search/Search';
 import ListsScreen from '../screens/lists/Lists';
 import HistoryScreen from '../screens/history/History';
 import MeScreen from '../screens/me/Me';
-import {History, Me, Search, Lists} from '../components/icons';
+import {History, Me, Loupe, Lists} from '../components/icons';
 const Tab = createBottomTabNavigator();
 
 const MyTabs = () => {
@@ -18,7 +18,7 @@ const MyTabs = () => {
       <Tab.Screen
         options={{
           title: 'Search',
-          tabBarIcon: ({color}) => <Search fill={color} />,
+          tabBarIcon: ({color}) => <Loupe fill={color} />,
         }}
         name="Search"
         component={SearchScreen}
