@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, TextInput, ImageBackground} from 'react-native';
+import {View, Image, TextInput, ImageBackground, StatusBar} from 'react-native';
 import ActivityBtn from '../../components/search/ActivityButton';
 import styles from './Search.styles';
 import {Loupe} from '../../components/icons';
@@ -9,6 +9,11 @@ import LinearGradient from 'react-native-linear-gradient';
 const Search = () => {
   return (
     <View style={styles.container}>
+      <StatusBar
+        animated={true}
+        barStyle="light-content"
+        showHideTransition="slide"
+      />
       <ImageBackground
         source={require('../../assets/images/dining-table.jpeg')}
         style={styles.imgContainer}>
