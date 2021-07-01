@@ -4,6 +4,7 @@ import ActivityBtn from '../../components/search/ActivityButton';
 import styles from './Search.styles';
 import {Loupe} from '../../components/icons';
 import buttonArray from '../../constants/buttonArray';
+import LinearGradient from 'react-native-linear-gradient';
 
 const Search = () => {
   return (
@@ -13,6 +14,10 @@ const Search = () => {
         style={styles.imgContainer}>
         <Image source={require('../../assets/images/city-guide-logo.png')} />
       </ImageBackground>
+      <LinearGradient
+        colors={['rgba(255,255,255,0.01)', 'rgba(240,239,244,1)']}
+        style={styles.linearGradient}
+      />
       <View style={styles.inputView}>
         <Loupe
           fill={'#979b9e'}

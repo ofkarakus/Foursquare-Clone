@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import device from '../../constants/device';
+import {getStatusBarHeight, isIPhone12} from 'react-native-status-bar-height';
 
 const styles = StyleSheet.create({
   container: {
@@ -29,17 +30,37 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     position: 'absolute',
-    top: device.height / 2.23,
-    zIndex: 1,
+    top: isIPhone12()
+      ? device.height / 2 - getStatusBarHeight(true) + 8
+      : device.height / 2 - getStatusBarHeight(true),
+    zIndex: 2,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+
+    elevation: 3,
   },
   searchIcon: {
     marginLeft: 15,
     marginRight: 20,
   },
   secretView: {
-    marginBottom: 25,
+    marginBottom: 55,
     height: 1,
     width: '100%',
+  },
+  linearGradient: {
+    width: device.width,
+    height: device.height / 10,
+    position: 'absolute',
+    top: isIPhone12()
+      ? device.height / 2 - device.height / 10 - getStatusBarHeight(true) + 8
+      : device.height / 2 - device.height / 10 - getStatusBarHeight(true),
+    zIndex: 1,
   },
 });
 
