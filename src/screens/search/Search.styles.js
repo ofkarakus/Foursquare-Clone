@@ -1,4 +1,5 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
+import device from '../../constants/device';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,38 +20,8 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'center',
   },
-  btn: {
-    width: Dimensions.get('window').width / 3,
-    height: '40%',
-    borderColor: '#d8d8dd',
-    justifyContent: 'center',
-  },
-  btnView: {
-    alignItems: 'center',
-  },
-  text: {
-    color: '#505457',
-    marginTop: 12,
-  },
-  firstBtn: {
-    borderBottomWidth: 1,
-    borderRightWidth: 1,
-  },
-  secondBtn: {
-    borderBottomWidth: 1,
-  },
-  thirdBtn: {
-    borderBottomWidth: 1,
-    borderLeftWidth: 1,
-  },
-  fourthBtn: {
-    borderRightWidth: 1,
-  },
-  sixthBtn: {
-    borderLeftWidth: 1,
-  },
   inputView: {
-    width: Dimensions.get('window').width * 0.9,
+    width: device.width * 0.9,
     height: 55,
     backgroundColor: 'white',
     alignSelf: 'center',
@@ -58,7 +29,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     position: 'absolute',
-    top: Dimensions.get('window').height / 2.23,
+    top: device.height / 2.23,
     zIndex: 1,
   },
   searchIcon: {
