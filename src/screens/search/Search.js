@@ -6,17 +6,26 @@ import {Loupe} from '../../components/icons';
 import buttonArray from '../../constants/buttonArray';
 import LinearGradient from 'react-native-linear-gradient';
 import getCurrentPosition from '../../helpers/getCurrentPosition';
+import search from '../../helpers/search';
 
 const Search = () => {
+  const [query, setQuery] = useState('');
   const [currentPosition, setCurrentPosition] = useState();
+  const [results, setResults] = useState();
+
+  const handleChange = text => setQuery(text);
+
+  const getResults = () => {
+    search(query, currentPosition)
+      .then(r => setResults(r))
+      .catch(e => console.log(e));
+  };
+
+  console.log(results);
 
   useEffect(() => {
-    getCurrentPosition().then(r => {
-      setCurrentPosition(r);
-    });
+    getCurrentPosition(setCurrentPosition);
   }, []);
-
-  console.log(currentPosition);
 
   return (
     <View style={styles.container}>
@@ -40,11 +49,13 @@ const Search = () => {
           width="18"
           height="18"
           style={styles.searchIcon}
+          onPress={getResults}
         />
         <TextInput
           placeholder="What are you looking for?"
           placeholderTextColor="#a8acab"
           style={styles.input}
+          onChangeText={handleChange}
         />
       </View>
       <View style={styles.btnContainer}>
