@@ -1,12 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Image, TextInput, ImageBackground, StatusBar} from 'react-native';
 import ActivityBtn from '../../components/search/ActivityButton';
 import styles from './Search.styles';
 import {Loupe} from '../../components/icons';
 import buttonArray from '../../constants/buttonArray';
 import LinearGradient from 'react-native-linear-gradient';
+import getCurrentPosition from '../../helpers/getCurrentPosition';
 
 const Search = () => {
+  const [currentPosition, setCurrentPosition] = useState();
+
+  useEffect(() => {
+    getCurrentPosition().then(r => {
+      setCurrentPosition(r);
+    });
+  }, []);
+
+  console.log(currentPosition);
+
   return (
     <View style={styles.container}>
       <StatusBar
