@@ -2,12 +2,12 @@ import React from 'react';
 import {View, TouchableHighlight, Text} from 'react-native';
 import styles from './ActivityButton.styles';
 
-const ActivityButton = ({style, text, icon}) => {
+const ActivityButton = ({style, text, icon, onPress}) => {
   return (
     <TouchableHighlight
       underlayColor="#e0e0e0"
-      onPress={() => console.log('press')}
-      style={[styles.btn, styles[style]]}>
+      style={[styles.btn, styles[style]]}
+      onPress={onPress}>
       <View style={styles.btnView}>
         {icon}
         <Text style={styles.text}>{text}</Text>

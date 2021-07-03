@@ -20,7 +20,7 @@ const search = async (query, currentPosition) => {
         ll: location,
         query: query,
         v: date,
-        limit: 1,
+        limit: 10,
       },
     })
     .catch(e => console.log(e));

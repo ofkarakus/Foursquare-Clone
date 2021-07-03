@@ -21,6 +21,12 @@ const Search = () => {
       .catch(e => console.log(e));
   };
 
+  const onPressActivityBtn = text => {
+    search(text, currentPosition)
+      .then(r => setResults(r))
+      .catch(e => console.log(e));
+  };
+
   console.log(results);
 
   useEffect(() => {
@@ -66,6 +72,9 @@ const Search = () => {
             text={item.text}
             icon={item.icon}
             style={item.style}
+            onPress={() => {
+              onPressActivityBtn(item.text);
+            }}
           />
         ))}
       </View>
