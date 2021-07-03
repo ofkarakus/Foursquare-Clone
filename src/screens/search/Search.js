@@ -2,13 +2,13 @@ import React, {useEffect, useState} from 'react';
 import {View, Image, TextInput, ImageBackground, StatusBar} from 'react-native';
 import ActivityBtn from '../../components/search/ActivityButton';
 import styles from './Search.styles';
-import {Loupe} from '../../components/icons';
+import {Search} from '../../components/icons';
 import buttonArray from '../../constants/buttonArray';
 import LinearGradient from 'react-native-linear-gradient';
 import getCurrentPosition from '../../helpers/getCurrentPosition';
 import search from '../../helpers/search';
 
-const Search = () => {
+const SearchScreen = () => {
   const [query, setQuery] = useState('');
   const [currentPosition, setCurrentPosition] = useState();
   const [results, setResults] = useState();
@@ -50,7 +50,7 @@ const Search = () => {
         style={styles.linearGradient}
       />
       <View style={styles.inputView}>
-        <Loupe
+        <Search
           fill={'#979b9e'}
           width="18"
           height="18"
@@ -82,4 +82,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchScreen;

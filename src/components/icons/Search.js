@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Svg, {Path} from 'react-native-svg';
 
-function SvgLoupe(props) {
+function SvgSearch(props) {
   return (
     <Svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,4 +14,4 @@ function SvgLoupe(props) {
   );
 }
 
-export default SvgLoupe;
+export default SvgSearch;

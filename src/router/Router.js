@@ -4,8 +4,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import SearchScreen from '../screens/search/Search';
 import ListsScreen from '../screens/lists/Lists';
 import HistoryScreen from '../screens/history/History';
-import MeScreen from '../screens/me/Me';
-import {History, Me, Loupe, Lists} from '../components/icons';
+import ProfileScreen from '../screens/profile/Profile';
+import {History, Profile, Search, Lists} from '../components/icons';
 const Tab = createBottomTabNavigator();
 
 const MyTabs = () => {
@@ -18,7 +18,7 @@ const MyTabs = () => {
       <Tab.Screen
         options={{
           title: 'Search',
-          tabBarIcon: ({color}) => <Loupe fill={color} />,
+          tabBarIcon: ({color}) => <Search fill={color} />,
         }}
         name="Search"
         component={SearchScreen}
@@ -42,10 +42,10 @@ const MyTabs = () => {
       <Tab.Screen
         options={{
           tabBarLabel: 'Me',
-          tabBarIcon: ({color}) => <Me fill={color} />,
+          tabBarIcon: ({color}) => <Profile fill={color} />,
         }}
-        name="Me"
-        component={MeScreen}
+        name="Profile"
+        component={ProfileScreen}
       />
     </Tab.Navigator>
   );
