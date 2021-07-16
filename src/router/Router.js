@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import SearchScreen from '../screens/search/Search';
 import ListsScreen from '../screens/lists/Lists';
 import HistoryScreen from '../screens/history/History';
 import ProfileScreen from '../screens/profile/Profile';
 import {History, Profile, Search, Lists} from '../components/icons';
+import SearchStack from './SearchRouter';
 const Tab = createBottomTabNavigator();
 
 const MyTabs = () => {
@@ -21,7 +21,7 @@ const MyTabs = () => {
           tabBarIcon: ({color}) => <Search fill={color} />,
         }}
         name="Search"
-        component={SearchScreen}
+        component={SearchStack}
       />
       <Tab.Screen
         options={{
