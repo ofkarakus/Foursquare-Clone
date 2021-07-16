@@ -20,11 +20,11 @@ const search = async (query, currentPosition) => {
         ll: location,
         query: query,
         v: date,
-        limit: 10,
+        limit: 1,
       },
     })
     .catch(e => console.log(e));
-  return data.response.venues;
+  return data.response;
 };
 
 export default search;

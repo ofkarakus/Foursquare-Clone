@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {View, Image, TextInput, ImageBackground, StatusBar} from 'react-native';
+import {
+  View,
+  Image,
+  TextInput,
+  ImageBackground,
+  StatusBar,
+  ActivityIndicator,
+} from 'react-native';
 import ActivityBtn from '../../components/search/ActivityButton';
 import styles from './Search.styles';
 import {Search} from '../../components/icons';
@@ -8,32 +15,35 @@ import LinearGradient from 'react-native-linear-gradient';
 import getCurrentPosition from '../../helpers/getCurrentPosition';
 import search from '../../helpers/search';
 
-const SearchScreen = () => {
+const SearchScreen = ({navigation}) => {
   const [query, setQuery] = useState('');
   const [currentPosition, setCurrentPosition] = useState();
-  const [results, setResults] = useState();
+  const [preloaderModal, setPreloaderModal] = useState(false);
 
   const handleChange = text => setQuery(text);
 
-  const getResults = () => {
-    search(query, currentPosition)
-      .then(r => setResults(r))
-      .catch(e => console.log(e));
+  const getResults = async text => {
+    if (text) {
+      setPreloaderModal(true);
+      const r = await search(text, currentPosition).catch(e => {
+        console.log(e);
+        setPreloaderModal(false);
+        return;
+      });
+      setPreloaderModal(false);
+      navigation.navigate('VenueList', {response: r});
+    }
   };
-
-  const onPressActivityBtn = text => {
-    search(text, currentPosition)
-      .then(r => setResults(r))
-      .catch(e => console.log(e));
-  };
-
-  console.log(results);
 
   useEffect(() => {
     getCurrentPosition(setCurrentPosition);
   }, []);
 
-  return (
+  return preloaderModal ? (
+    <View style={[styles.preloaderContainer, styles.horizontal]}>
+      <ActivityIndicator size="large" />
+    </View>
+  ) : (
     <View style={styles.container}>
       <StatusBar
         animated={true}
@@ -55,7 +65,9 @@ const SearchScreen = () => {
           width="18"
           height="18"
           style={styles.searchIcon}
-          onPress={getResults}
+          onPress={() => {
+            getResults(query);
+          }}
         />
         <TextInput
           placeholder="What are you looking for?"
@@ -73,7 +85,7 @@ const SearchScreen = () => {
             icon={item.icon}
             style={item.style}
             onPress={() => {
-              onPressActivityBtn(item.text);
+              getResults(item.text);
             }}
           />
         ))}
