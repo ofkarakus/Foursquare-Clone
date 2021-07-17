@@ -1,14 +1,17 @@
 import Geolocation from 'react-native-geolocation-service';
 import device from '../constants/device';
 
-const getCurrentPosition = async setCurrentPosition => {
+const getCurrentPosition = async dispatch => {
   if (device.ios) {
     try {
       const authorization = await Geolocation.requestAuthorization('whenInUse');
       if (authorization === 'granted') {
         Geolocation.getCurrentPosition(
           position => {
-            setCurrentPosition(position);
+            dispatch({
+              type: 'SET_CURRENT_POSITION',
+              payload: {currentPosition: position},
+            });
           },
           error => {
             console.log(error.code, error.message);
@@ -22,7 +25,10 @@ const getCurrentPosition = async setCurrentPosition => {
   } else if (device.android) {
     Geolocation.getCurrentPosition(
       position => {
-        setCurrentPosition(position);
+        dispatch({
+          type: 'SET_CURRENT_POSITION',
+          payload: {currentPosition: position},
+        });
       },
       error => {
         console.log(error.code, error.message);

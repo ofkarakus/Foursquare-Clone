@@ -14,11 +14,14 @@ import buttonArray from '../../constants/buttonArray';
 import LinearGradient from 'react-native-linear-gradient';
 import getCurrentPosition from '../../helpers/getCurrentPosition';
 import search from '../../helpers/search';
+import {useSelector, useDispatch} from 'react-redux';
 
 const SearchScreen = ({navigation}) => {
   const [query, setQuery] = useState('');
-  const [currentPosition, setCurrentPosition] = useState();
   const [preloaderModal, setPreloaderModal] = useState(false);
+
+  const currentPosition = useSelector(state => state.currentPosition);
+  const dispatch = useDispatch();
 
   const handleChange = text => setQuery(text);
 
@@ -36,7 +39,7 @@ const SearchScreen = ({navigation}) => {
   };
 
   useEffect(() => {
-    getCurrentPosition(setCurrentPosition);
+    getCurrentPosition(dispatch);
   }, []);
 
   return preloaderModal ? (
@@ -49,6 +52,8 @@ const SearchScreen = ({navigation}) => {
         animated={true}
         barStyle="light-content"
         showHideTransition="slide"
+        translucent={true}
+        backgroundColor="transparent"
       />
       <ImageBackground
         source={require('../../assets/images/dining-table.jpeg')}

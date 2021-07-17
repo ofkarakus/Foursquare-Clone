@@ -30,10 +30,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     position: 'absolute',
-    top:
-      (isIPhone12() && device.height / 2 - getStatusBarHeight() + 8) ||
-      (device.android && device.height / 2 - getStatusBarHeight() - 12) ||
-      device.height / 2 - getStatusBarHeight(),
+    top: isIPhone12()
+      ? device.height / 2 - getStatusBarHeight() + 8
+      : device.height / 2 - getStatusBarHeight(),
     zIndex: 2,
     shadowColor: '#000',
     shadowOffset: {
@@ -58,12 +57,9 @@ const styles = StyleSheet.create({
     width: device.width,
     height: device.height / 10,
     position: 'absolute',
-    top:
-      (isIPhone12() &&
-        device.height / 2 - device.height / 10 - getStatusBarHeight() + 8) ||
-      (device.android &&
-        device.height / 2 - device.height / 10 - getStatusBarHeight() - 12) ||
-      device.height / 2 - device.height / 10 - getStatusBarHeight(),
+    top: isIPhone12()
+      ? device.height / 2 - device.height / 10 - getStatusBarHeight() + 8
+      : device.height / 2 - device.height / 10 - getStatusBarHeight(),
     zIndex: 1,
   },
   preloaderContainer: {
