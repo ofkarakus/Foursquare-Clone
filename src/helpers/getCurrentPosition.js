@@ -13,9 +13,7 @@ const getCurrentPosition = async dispatch => {
               payload: {currentPosition: position},
             });
           },
-          error => {
-            console.log(error.code, error.message);
-          },
+          error => console.log(error.code, error.message),
           {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
         );
       }
@@ -30,9 +28,7 @@ const getCurrentPosition = async dispatch => {
           payload: {currentPosition: position},
         });
       },
-      error => {
-        console.log(error.code, error.message);
-      },
+      error => console.log(error.code, error.message),
       {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
     );
   }
