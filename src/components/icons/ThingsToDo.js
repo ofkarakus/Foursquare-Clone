@@ -3,7 +3,12 @@ import Svg, {Circle, Path} from 'react-native-svg';
 
 function SvgThingsToDo(props) {
   return (
-    <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" {...props}>
+    <Svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 512 512"
+      width="20"
+      height="20"
+      {...props}>
       <Circle cx={368} cy={136} r={8} />
       <Circle cx={320} cy={120} r={8} />
       <Circle cx={272} cy={88} r={8} />
