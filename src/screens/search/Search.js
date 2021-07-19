@@ -34,7 +34,7 @@ const SearchScreen = ({navigation}) => {
         return;
       });
       setPreloaderModal(false);
-      navigation.navigate('VenueList', {response: r});
+      navigation.navigate('VenueList', {response: r, query: text});
     }
   };
 

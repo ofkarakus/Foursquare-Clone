@@ -5,7 +5,7 @@ import styles from './VenueList.style';
 import {LeftArrow, Compass, Map} from '../../../components/icons';
 
 const VenueList = ({route}) => {
-  const {response} = route.params;
+  const {response, query} = route.params;
   const [color, setColor] = useState('white');
   const [backgroundColor, setBackgroundColor] = useState('#2850e0');
 
@@ -46,7 +46,14 @@ const VenueList = ({route}) => {
                 height={25}
                 style={styles.leftArrow}
               />
-              <TextInput style={styles.headerInput} />
+              <TextInput
+                onFocus={onFocus}
+                onBlur={onBlur}
+                style={styles.headerInput}
+                placeholder="Search Foursquare"
+                placeholderTextColor="gray"
+                value={query}
+              />
             </View>
             <View style={[styles.mapInputDiv, {backgroundColor}]}>
               <Compass
